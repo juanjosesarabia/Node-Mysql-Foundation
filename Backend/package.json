@@ -4,7 +4,7 @@
   "description": "Prueba tecnica ",
   "main": "index.js",
   "scripts": {
-    "start": "node Server/index.js"
+    "start": "nodemon Server/index.js"
   },
   "author": "Juan José Sarabia caffroni",
   "license": "ISC",
@@ -14,5 +14,8 @@
     "express-myconnection": "^1.0.4",
     "morgan": "^1.9.1",
     "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }

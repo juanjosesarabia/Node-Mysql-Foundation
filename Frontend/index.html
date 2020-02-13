@@ -1,11 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Prueba tecnica</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>prueba</p>
-</body>
+    <link rel="stylesheet" href="css/app.css">    
+    <link rel="stylesheet" href="css/estilos.css">
+  </head>
+
+  <body >
+
+    <nav class="menu-nav">
+      
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="vistas/registrar.html">Registrar</a></li>
+        <li><a href="vistas/editar.html">Editar</a></li>
+        <li><a href="vistas/eliminar.html">Eliminar</a></li>
+        <li><a href="vistas/actualizar.html">Actualizar</a></li>
+      </ul>
+         
+
+
+    </nav><!-- terminacion del menu -->
+
+
+
+   
+     <div class="grid-container panel-form">
+   
+      <h4>Lista de Datos</h4>
+      
+         
+           <div class="table-scroll">
+            <table class=" ">
+              <thead>
+                <th scope="col">Identificacion</th>
+                <th scope="col">Primer Nombre</th>
+                <th scope="col">Segundo Nombre</th>
+                <th scope="col">Primer Apellido</th>
+                <th scope="col">Segundo Apellido </th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Email</th>
+                <th scope="col">Ocupación</th>
+                <th scope="col">Departamento</th>
+                <th scope="col">Municipio</th>
+              </tr>
+             </thead>
+            <tbody id="tbody">
+
+            </tbody>
+            </table>
+           
+          
+
+          </div><!--  terminacion Tablas de datos  --->
+        
+
+        </div>
+        
+
+       
+         
+
+ <br><br><br><br><br>
+
+
+       <footer class="footer">
+         <!-- Copyright -->
+         <div class="footer-copyright text-center py-3">Copyright© Ing. Juan José Sarabia Caffroni
+         </div>
+       </footer>
+
+
+
+
+       <!-- Conexion con Jquery -->    
+    
+     <script src="js/app.js"> </script>
+     <script src="js/jquery.js"></script>
+     <!-- Conexion con funciones creadas en el JavaScript -->
+     <script src="js/controlador.js"></script>
+
+
+
+
+  </body>
 </html>
