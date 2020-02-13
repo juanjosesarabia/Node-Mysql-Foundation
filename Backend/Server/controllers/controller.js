@@ -3,10 +3,10 @@ const controller ={}
 controller.list = (req, res)=>{
  req.getConnection((err, conn) =>{
     
-    conn.query("select * from usuarios", (err,usuarios)=>{
+    conn.query("select * from usuarios", (error,usuarios)=>{
             
        
-        if(err){
+        if(error){
             res.json(err);
             res.status(500).send({message:`Error al realizar la peticion:${err}`})
         }else{
@@ -21,34 +21,36 @@ controller.list = (req, res)=>{
 
 
 controller.save = (req, res)=>{
-
+   
     req.getConnection((err, conn) =>{
        
-       conn.query(`INSERT INTO usuarios (identificacion, tipoId, primerNombre, segundoNombre,primerApellido,segundoApellido,direccion,telefono,email,ocupacion,departamento,municipio)VALUES(${req.body.identificacion},${req.body.tipoId},${req.body.primerNombre},${req.body.segundNombre},${req.body.primerApellido},${req.body.segundoApellido},${req.body.direccion},${req.body.telefono},${req.body.email},${req.body.ocupacion},${req.body.departamento},${req.body.municipio});`, (err,usuarios)=>{
-               
-        if(err){
-               res.json(err);
+  conn.query(`INSERT INTO usuarios (identificacion, tipoId, primerNombre, segundoNombre,primerApellido,segundApellido,direccion,telefono,email,ocupacion,departamento,municipio)VALUES('${req.body.identificacion}','${req.body.tipoId}','${req.body.primerNombre}','${req.body.segundoNombre}','${req.body.primerApellido}','${req.body.segundoApellido}','${req.body.direccion}','${req.body.telefono}','${req.body.email}','${req.body.ocupacion}','${req.body.departamento}','${req.body.municipio}');`, (error,usuarios)=>{
+    
+        if(error){
+               res.json(error);
+               res.status(500).send({message:`Error al realizar la peticion:${err}`})
            }else{
-            console.log("Se ingresaron los datos");
+            res.status(200).send({message:`Registro Guardado`})
             
            }
-           console.log(req.body);
+          
          
                });
     });
    };
 
    controller.delete = (req, res)=>{
-    const {identificacion}  =req.params.identificacion;
-  
+    
+      
     req.getConnection((err, conn) =>{
        
-       conn.query(`DELETE from usuarios WHERE identificacion =${req.params.identificacion};`, (err,usuarios)=>{
-           if(err){
+       conn.query(`DELETE from usuarios WHERE identificacion ='${req.body.identificacion}';`, (error,usuarios)=>{
+           
+           if(error){
                res.json(err);
+               res.status(500).send({message:`Registro no se encontró y no se eliminó`})
            }else{
-            console.log("Se elimino el usuario");
-            console.log(req.params.identificacion);
+            res.status(200).send({message:`Registro Eliminado`})
            }                   
                });
     });

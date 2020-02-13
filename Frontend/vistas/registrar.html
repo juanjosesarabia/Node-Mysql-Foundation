@@ -32,17 +32,17 @@
    
     <div class="panel-form">
     <h4>Datos a Registrar</h4>
-      <form>
+      <form id="crearUsuario">
         <div class="grid-container">
           <div class="grid-x grid-padding-x">
             <div class="medium-6 cell">
               <label>N° de Identificacion
-                <input type="text" placeholder="Identificacion" required>
+                <input type="text" placeholder="Identificacion" id="identificacion" required>
               </label>
             </div>
             <div class="medium-6 cell">
               <label>Tipo de Identificacion
-                <select required>
+                <select required  id="tipoId">
                   <option >Tipo de Identificacion</option>
                   <option value="CC">CC</option>
                   <option value="RC">RC</option>
@@ -55,47 +55,47 @@
             </div>
             <div class="medium-6 cell">
               <label>Primer Nombre
-                <input type="text" placeholder="Primer Nombre" required>
+                <input type="text" placeholder="Primer Nombre" id="primerNombre" required>
               </label>
             </div>
             <div class="medium-6 cell">
               <label>Segundo Nombre
-                <input type="text" placeholder="Segundo Nombre">
+                <input type="text" placeholder="Segundo Nombre" id="segundoNombre">
               </label>
             </div>
             <div class="medium-6 cell">
               <label>Primer Apellido
-                <input type="text" placeholder="Primer Apellido" required>
+                <input type="text" placeholder="Primer Apellido" id="primerApellido" required>
               </label>
             </div>
             <div class="medium-6 cell">
               <label>Segundo Apellido
-                <input type="text" placeholder="Segundo Apellido">
+                <input type="text" placeholder="Segundo Apellido" id="segundoApellido">
               </label>
             </div>
             <div class="medium-6 cell">
               <label>Dirección
-                <input type="text" placeholder="Dirección" required>
+                <input type="text" placeholder="Dirección" id="direccion" required>
               </label>
             </div>
             <div class="medium-6 cell">
               <label>Teléfonos
-                <input type="text" placeholder="Teléfonos">
+                <input type="text" placeholder="Teléfonos" id="telefono">
               </label>
             </div>
             <div class="medium-6 cell">
               <label>email
-                <input type="email" placeholder="Email" required>
+                <input type="email" placeholder="Email" id="email" required>
               </label>
             </div>
             <div class="medium-6 cell">
               <label>Ocupación
-                <input type="text" placeholder="Ocupación">
+                <input type="text" id="ocupacion" placeholder="Ocupación">
               </label>
             </div>
             <div class="medium-6 cell">
               <label>Departamento
-                <select >
+                <select id="departamento" >
                   <option >Departamento</option>
                   <option value="Bolívar">Bolívar</option>
                   <option value="Atlántico">Atlántico</option>
@@ -105,8 +105,8 @@
             </div>
             <div class="medium-6 cell">
               <label>Municipio
-                <select >
-                  <option >Departamento</option>
+                <select id="municipio">
+                  <option >Municipio</option>
                   <option value="Cartagena">Cartagena</option>
                   <option value="Barranquilla">Barranquilla</option>
                   

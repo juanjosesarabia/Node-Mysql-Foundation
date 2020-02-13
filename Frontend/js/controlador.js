@@ -140,126 +140,55 @@ $(document).ready(function(){
     });
     
 
+    $('#crearUsuario').submit(function () {
+ 
+      var identificacion= $("#identificacion").val();
+      var tipoId= $("#tipoId").val();
+      var primerNombre = $("#primerNombre").val();
+      var segundoNombre = $("#segundoNombre").val();
+      var primerApellido = $("#primerApellido").val();
+      var segundoApellido = $("#segundoApellido").val();
+      var direccion= $("#direccion").val();
+      var telefono = $("#telefono").val();
+      var email = $("#email").val();
+      var ocupacion = $("#ocupacion").val();
+      var departamento = $("#departamento").val();
+      var municipio = $("#municipio").val();
+
+      
 
 
+      
+        $.post("/agregar", {identificacion: identificacion, tipoId: tipoId, primerNombre: primerNombre,segundoNombre: segundoNombre,primerApellido:primerApellido,segundoApellido:segundoApellido,direccion:direccion,telefono:telefono,email:email,ocupacion:ocupacion,departamento:departamento,municipio:municipio})
+        .done(function (responseServer) {
+         
+              if (responseServer) {
+                 alert(responseServer.message);
+               
+              } else {
+                 alert("No se guardo el registro");
+              }
+          })                   
+          return false; 
+      });
+      
 
-
-
-
-
+      $('#eliminarUsuario').submit(function () {
+ 
+        var identificacion= $("#identificacion").val();
   
+             
+          $.post("/delete",{identificacion: identificacion})
+          .done(function (responseServer) {
+           
+                if (responseServer) {
+                   alert(responseServer.message);
+                 
+                } else {
+                  alert(responseServer.message);
+                }
+            })                   
+            return false; 
+        });
             
-
- function listarEntidades(){
-
-   $.getJSON(localStorage["host"] + "php/listarEntidades.php")
-             .done(function (respuestaServ) {
-                   var nombreI;
-                 if (respuestaServ.validacion=="ok") {
-                      arreglo = respuestaServ.datos;
-                      cantidad = respuestaServ.n;
-                      
-                      nombreUsuario = respuestaServ.sesion;
-
-                 if (nombreUsuario!==undefined) {
-                     document.getElementById('nombreUsuario').innerHTML=nombreUsuario ;
-                  }
-
-                      for (var i = 0; i < cantidad; i++) {
-                         nombreI = arreglo[i].nombreI;
-
-                                     var x = document.createElement("OPTION");
-                                     var t = document.createTextNode(nombreI);
-                                     //x.setAttribute("value", i);
-                                     x.appendChild(t);
-                                     document.getElementById("listaEse").appendChild(x);
-           }//fin del for
-                 }else{
-                   alert(respuestaServ.mensaje);
-                 }
-                });
-
-             };
-
-
-
-function validarEntidad(){// Validar la entidad
-  var datoEntidad = document.getElementById("entidad").value;
-
-    if (datoEntidad.length == 0) {
-       alert("Debes seleccionar una entidad");
-          } else {
-                    $.getJSON(localStorage["host"] + "php/buscarEntidad.php",{id:datoEntidad})
-                                         .done(function (respuestaServer) {
-                                             if (respuestaServer.validacion == "ok") {
-                                               doc = respuestaServer.entidad;
-                                               zode = document.getElementById("Zodes");
-                                               zode.value =doc[0].zode;
-                                               nom = document.getElementById("Municipio");
-                                               nom.value =doc[0].nombre;
-                                               ap = document.getElementById("nombreI");
-                                               ap.value =doc[0].nombreI;
-                                               geren = document.getElementById("nombreG");
-                                               geren.value =doc[0].ngerente;
-                                               tel = document.getElementById("telefono");
-                                               tel.value =doc[0].telefono;
-                                               fech = document.getElementById("firmaF");
-                                               fech.value =doc[0].fechaFinal;
-                                              document.getElementById("nombreG").removeAttribute("disabled");
-                                              document.getElementById("telefono").removeAttribute("disabled");
-                                              document.getElementById("firmaF").removeAttribute("disabled");
-                                              document.getElementById("botonGuardar").removeAttribute("disabled");
-
-
-                                             } else {
-                                                 alert(respuestaServer.mensaje);
-                                             }
-                                         })
-
-                    }
-             }
-
-function actualizarGerente(){//Actualizar gerente
-              // se recolectan los datos ingresados al formulario
-            var nombreIs= $("#nombreI").val();
-            var nombreG = $("#nombreG").val();
-            var telefono = $("#telefono").val();
-            var firmaF = $("#firmaF").val();
-
-             $.getJSON(localStorage["host"] + "php/registroGerente.php", {nombreI: nombreIs, nombre: nombreG, telefono: telefono, firma: firmaF,})
-                      .done(function (respuestaServer) {
-
-                            if (respuestaServer.validacion == "ok") {
-                            	alert(respuestaServer.mensaje);
-                              window.location.href = 'modificarG.html';
-                            } else {
-                                alert(respuestaServer.mensaje);
-                            }
-                        })
-                return false;
-            }
-
-
-
-/////////////////////////////////////////////////////////////////codigo sin utilizacion este proyecto
-
-function enviarCorreo(){
-
-  $.getJSON(localStorage["host"] + "php/enviarCorreo.php")
-                       .done(function (respuestaServer) {
-                           if (respuestaServer.validacion == "ok") {
-                               alert(" Se envío correo");
-                                 console.log(" Se envío correo");
-                           } else {
-                               alert(respuestaServer.mensaje);
-                           }
-                       })
-}
-
-
-function extraerPdf(){
-  window.open(localStorage["host"] + "php/imprimirPDF.php","Nueva ventana");
-
-  
-}
 
