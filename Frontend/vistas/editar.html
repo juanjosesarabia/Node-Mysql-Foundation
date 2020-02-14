@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Prueba tecnica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/app.css">    
+    <link rel="stylesheet" href="../css/estilos.css">
+  </head>
+
+  <body >
+
+    <nav class="menu-nav">
+      
+      <ul class="menu">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="registrar.html">Registrar</a></li>
+        <li><a href="editar.html">Editar</a></li>
+        <li><a href="eliminar.html">Eliminar</a></li>
+       
+      </ul>
+         
+
+
+    </nav><!-- terminacion del menu -->
+      
+    <div class="grid-container">
+   
+      <div class="panel-form">
+      <h4>Seleccionar Datos Editar</h4>
+        <form id="BuscarUsuario">
+          <div class="grid-container">
+            <div class="grid-x ">
+              <div class="medium-2 cell">
+                <label>N° de Identificacion</label>              
+              </div>
+  
+              <div class="medium-6 cell">             
+                  <input type="text" placeholder="Identificacion" id="identi" name="identi" required>
+               </div>
+              
+              
+              <div class="medium-4 cell">
+                <button type="submit" class="button cell small-2 " id="Eliminar">Buscar</button>
+              </div>
+            </div>
+          </div>
+          
+            
+          <br><br>
+            
+        </form>
+  
+        </div>               
+  
+          </div>
+
+
+   
+     <div class="grid-container">
+   
+    <div class="panel-form">
+    <h4>Datos a Actualizar</h4>
+      <form id="actualizarUsuario">
+        <div class="grid-container">
+          <div class="grid-x grid-padding-x">
+            <div class="medium-6 cell">
+              <label>N° de Identificacion
+                <input type="text" placeholder="Identificacion" id="identificacion" required disabled>
+              </label>
+            </div>
+            <div class="medium-6 cell">
+              <label>Tipo de Identificacion
+                <select required  id="tipoId" disabled>
+                  <option >Tipo de Identificacion</option>
+                  <option value="CC">CC</option>
+                  <option value="RC">RC</option>
+                  <option value="RI">TI</option>
+                  <option value="AS">AS</option>
+                  <option value="MS">MS</option>
+                  <option value="PA">PA</option>
+                </select>
+              </label>
+            </div>
+            <div class="medium-6 cell">
+              <label>Primer Nombre
+                <input type="text" placeholder="Primer Nombre" id="primerNombre" required disabled>
+              </label>
+            </div>
+            <div class="medium-6 cell">
+              <label>Segundo Nombre
+                <input type="text" placeholder="Segundo Nombre" id="segundoNombre" disabled>
+              </label>
+            </div>
+            <div class="medium-6 cell">
+              <label>Primer Apellido
+                <input type="text" placeholder="Primer Apellido" id="primerApellido" required disabled>
+              </label>
+            </div>
+            <div class="medium-6 cell">
+              <label>Segundo Apellido
+                <input type="text" placeholder="Segundo Apellido" id="segundoApellido" disabled>
+              </label>
+            </div>
+            <div class="medium-6 cell">
+              <label>Dirección
+                <input type="text" placeholder="Dirección" id="direccion" required disabled>
+              </label>
+            </div>
+            <div class="medium-6 cell">
+              <label>Teléfonos
+                <input type="text" placeholder="Teléfonos" id="telefono" disabled>
+              </label>
+            </div>
+            <div class="medium-6 cell">
+              <label>email
+                <input type="email" placeholder="Email" id="email" required disabled>
+              </label>
+            </div>
+            <div class="medium-6 cell">
+              <label>Ocupación
+                <input type="text" id="ocupacion" placeholder="Ocupación"disabled>
+              </label>
+            </div>
+            <div class="medium-6 cell">
+              <label>Departamento
+                <select id="departamento"  disabled>
+                  <option >Departamento</option>
+                  <option value="Bolívar">Bolívar</option>
+                  <option value="Atlántico">Atlántico</option>
+                  
+                </select>
+              </label>
+            </div>
+            <div class="medium-6 cell">
+              <label>Municipio
+                <select id="municipio" disabled>
+                  <option >Municipio</option>
+                  <option value="Cartagena">Cartagena</option>
+                  <option value="Barranquilla">Barranquilla</option>
+                  
+                </select>
+              </label>
+            </div>
+          </div>
+        </div>
+        
+          
+         
+          <div class="grid-x grid-margin-x">
+            
+            <button type="submit" class="button cell small-2 small-offset-10" id="registrar" disabled>Actualizar</button>
+          </div>
+      </form>
+
+      </div>
+       <br>
+         
+          
+        
+
+        </div>
+        
+
+       
+         
+
+ <br><br><br><br><br>
+
+
+       <footer class="footer">
+         <!-- Copyright -->
+         <div class="footer-copyright text-center py-3">Copyright© Ing. Juan José Sarabia Caffroni
+         </div>
+       </footer>
+
+
+
+
+       <!-- Conexion con Jquery -->    
+    
+     <script src="../js/app.js"> </script>
+     <script src="../js/jquery.js"></script>
+     <!-- Conexion con funciones creadas en el JavaScript -->
+     <script src="../js/controlador.js"></script>
+
+
+
+
+  </body>
+</html>

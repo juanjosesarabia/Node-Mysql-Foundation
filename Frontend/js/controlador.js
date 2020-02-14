@@ -154,10 +154,7 @@ $(document).ready(function(){
       var ocupacion = $("#ocupacion").val();
       var departamento = $("#departamento").val();
       var municipio = $("#municipio").val();
-
       
-
-
       
         $.post("/agregar", {identificacion: identificacion, tipoId: tipoId, primerNombre: primerNombre,segundoNombre: segundoNombre,primerApellido:primerApellido,segundoApellido:segundoApellido,direccion:direccion,telefono:telefono,email:email,ocupacion:ocupacion,departamento:departamento,municipio:municipio})
         .done(function (responseServer) {
@@ -190,5 +187,59 @@ $(document).ready(function(){
             })                   
             return false; 
         });
-            
+   
 
+    $('#BuscarUsuario').submit(function () {
+
+      var identificacion= $("#identi").val();
+        
+
+      if(identificacion.length==0){
+        alert("Ingresar un Numero de identificación");
+       }else{
+        
+
+      var   datos = {identi:identificacion};
+
+
+       
+        $.post("/buscar",datos, "json",null)
+          .done(function (respuestaServ) {
+       
+            
+              
+                arreglo = respuestaServ.usuarios;
+   					     
+
+                
+
+   					for (var i = 0; i < respuestaServ.usuarios.length; i++) {
+                
+            
+             let   identificacion = arreglo[i].identificacion;
+             let   tipoId = arreglo[i].tipoId;
+             let   primerNombre = arreglo[i].primerNombre;
+             let   segundoNombre = arreglo[i].segundoNombre;
+             let   primerApellido = arreglo[i].primerApellido;
+             let   segundApellido = arreglo[i].segundApellido;
+             let   direccion= arreglo[i].direccion;
+             let   telefono= arreglo[i].telefono;
+             let   email= arreglo[i].email;
+             let   ocupacion= arreglo[i].ocupacion;
+             let   departamento = arreglo[i].departamento;
+             let   municipio= arreglo[i].municipio;
+                
+
+
+                                 let  id = document.$("#identificacion");
+                                      id.value =arreglo[i].identificacion;
+                                      id.removeAttr("disabled");
+                                
+                                      
+
+           
+
+          }//fin del for
+        } );
+      }
+      });

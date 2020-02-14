@@ -8,6 +8,7 @@ router.post('/agregar',controller.save);// guardar datos
 
 router.post('/delete',controller.delete);//eliminar datos
 
-router.put('/update/:identificacion',controller.edit);// actualizar datos o editar
 
+
+router.post('/buscar',controller.buscar);// buscar datos
 module.exports=router ;

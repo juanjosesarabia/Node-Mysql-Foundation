@@ -56,22 +56,41 @@ controller.save = (req, res)=>{
     });
    };
 
+ 
 
-   controller.edit = (req, res)=>{
-    const {identificacion}  =req.params;
+
+    controller.buscar = (req, res)=>{        
+       
+         req.getConnection((err, conn) =>{
+           
+            conn.query(`SELECT * from usuarios WHERE identificacion ='${req.body.identi}';`, (error,usuarios)=>{
+                console.log(`SELECT * from usuarios WHERE identificacion ='${req.body.identi}';`);
+                if(error){
+                    res.json(error);
+                    res.status(500).send({message:`Registro no se encontró `})
+                }else{
+                     
+                    res.status(200).send({usuarios})
+                }  
+                
+                    });
+         });
+        };
     
-     req.getConnection((err, conn) =>{
-        
-        conn.query(`SELECT * from usuarios WHERE identificacion =${req.params.identificacion};`, (err,usuarios)=>{
+
+
+
+    controller.edit = (req, res)=>{
+            const {identificacion}  =req.params;
             
-            
-                });
-     });
-    };
-
-
-
-
+             req.getConnection((err, conn) =>{
+                
+                conn.query(`SELECT * from usuarios WHERE identificacion =${req.params.identificacion};`, (err,usuarios)=>{
+                    
+                    
+                        });
+             });
+            };
 
 
 module.exports=controller;
